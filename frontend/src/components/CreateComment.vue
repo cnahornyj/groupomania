@@ -1,17 +1,11 @@
 <template>
-    <div class="comment">
-        <h2 class="comment__title">
-            Ajoutez un commentaire :
-        </h2>
-        <form method="POST" class="comment__form" v-on:submit.prevent='submit()'>
-            <div class="comment__formbox" >
-                <label for="comment-create" class="comment__label">Votre commentaire :</label>
-                <input type="text" id="comment-create" class="comment__input" v-model="comment" placeholder="Entrez votre commentaire">
-                <span class="form__error" v-if="(!$v.comment.required && $v.comment.$dirty) && submited" >Veuillez entrer un commentaire avant de valider</span>
+    <div id="create-comment">
+        <form method="POST" v-on:submit.prevent='submit()'>
+            <div>
+                <input type="text" v-model="comment" placeholder="Ecrivez un commentaire...">
+                <span v-if="(!$v.comment.required && $v.comment.$dirty) && submited" class="error-message">Veuillez écrire un commentaire avant de valider</span>
             </div>
-            <button class="comment__button" title='Valider' type="submit">VALIDER</button>
         </form>
-
     </div>
 </template>
 
@@ -64,48 +58,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" >
-    .comment{
-        padding: 10px;
-        &__title{
-            margin-bottom: 18px;
-        }
-        &__form{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        &__formbox{
-            width: 100%;
-            margin-bottom: 18px;
-            position: relative;
-            padding-bottom: 40px;
-        }
-        &__label{
-            display: block;
-            margin-bottom: 10px;
-        }
-        &__input{
-            width: 100%;
-            height: 50px;
-            border-radius: 10px;
-            border: 1px solid black;
-            padding-left: 16px;
-            font-size: 16px;
-        }
-        &__button{
-            background-color: #004367;
-            border-radius: 10px;
-            padding: 12px 30px;
-            border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            &:hover{
-                opacity: 0.9;
-            }
-        }
-    }
-</style>

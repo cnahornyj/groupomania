@@ -7,15 +7,15 @@
                 <div class="group">
                     <label for="email">E-mail</label>
                     <input type="email" name="email" id="email" value="" v-model="email" placeholder="exemple@hotmail.com" v-on:focus="deActivate">
-                    <span class="errorMessage" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez rentrer un email valide</span>
+                    <span class="error-message" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez rentrer un email valide</span>
                 </div>
                 <div class="group">
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password" value="" v-model="password" placeholder="••••••••••" v-on:focus="deActivate">
-                    <span class="errorMessage" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
-                    <span class="errorMessage" v-if="(!$v.password.minLength || !$v.password.maxLength) && $v.password.$dirty">Le mot de passe doit être entre {{ $v.password.$params.minLength.min }} et {{ $v.password.$params.maxLength.max }} </span>
+                    <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
+                    <span class="error-message" v-if="(!$v.password.minLength || !$v.password.maxLength) && $v.password.$dirty">Le mot de passe doit être entre {{ $v.password.$params.minLength.min }} et {{ $v.password.$params.maxLength.max }} </span>
                 </div>
-                <span class="errorMessage" v-if="responseError && submited">Votre e-mail/votre mot de passe est incorrect</span>
+                <span class="error-message" v-if="responseError && submited">Votre e-mail/votre mot de passe est incorrect</span>
                 <div class="navigation">
                     <router-link to="/Signup" class="link" >S'INSCRIRE</router-link>
                     <button type="submit" >SE CONNECTER</button>
@@ -80,6 +80,5 @@ export default {
         }
     }
 }
-
 
 </script>

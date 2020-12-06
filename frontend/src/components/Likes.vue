@@ -1,7 +1,7 @@
 <template>
-    <div class="post__likebox">
-        <p>{{ numberOfLikes }} Likes</p>
-        <p class="post__like" title="like" role="button" :id="post.postId" v-on:click="Likes()"><font-awesome-icon icon="heart" /></p>
+    <div id="post__likebox">
+        <p>{{ numberOfLikes }} j'aime(s)</p>
+        <p class="post__like" title="like" role="button" :id="post.postId" v-on:click="Likes()"><font-awesome-icon icon="heart"/></p>
     </div>
         
 </template>
@@ -105,26 +105,20 @@ export default {
 <style lang="scss" >
     .post{
         &__likebox{
+            margin: 10px 0 10px 0;
             padding: 10px;
             position: relative;
         }
         &__like{
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        cursor: pointer;
-        transition: transform ease-in-out 200ms, opacity 200ms;
-        color: rgb(167, 167, 167);
+        color: #424242;;
         font-size: 20px;
-        opacity: 0.8;
-        
-        &:hover{
-            transform: scale(1.2);
-            opacity: 1
+        :hover{
+            transform: scale(1.1);
+            color: #d1515a;
         }
     }
     &__liked{
-        color: #FD2D01;
+        color: #d1515a;
     }
 }
     

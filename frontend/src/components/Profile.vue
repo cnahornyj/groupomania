@@ -1,14 +1,17 @@
 <template>
     <div class="profile">
-        <div class="profile__box" v-for="user in profile" :key="user.userId">
-            <h1 class="profile__title">Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h1>
-            <h2 class="profile__subtitle">Voici vos informations : </h2>
-            <p class="profile__firstName"><strong>Votre Nom :</strong> {{ user.firstName }}</p>
-            <p class="profile__lastName"><strong>Votre Prénom :</strong> {{ user.lastName }}</p>
-            <p class="profile__email"><strong>Votre e-mail :</strong> {{ user.email }}</p>
-            <p class="profile__createdAt"><strong>Date de création :</strong> {{ user.createdAt }}</p>
+        <main>
+        <div id="profile" v-for="user in profile" :key="user.userId">
+            <h3>Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h3><hr>
+            <div id="profile_informations">
+                <h4>Votre profil</h4>
+                <p>{{ user.firstName }} {{ user.lastName }}</p>
+                <p>{{ user.email }}</p>
+                <p>Vous êtes parmis nous depuis le {{ user.createdAt }}</p>
+            </div> 
+            <button v-on:click="deleteAccount">Supprimer mon compte</button>
         </div>
-        <button v-on:click='deleteAccount'  class="home__button home__button--delete">Supprimer mon compte</button>
+       </main>
     </div>
 </template>
 
@@ -62,30 +65,30 @@ export default {
 </script>
 
 <style lang="scss">
-    .profile{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: auto;
-
-        p{
-            margin-bottom: 15px;
-        }
-
-        &__box{
-            margin-top: 150px;
-        }
-
-        &__title{
-            margin-bottom: 25px;
-            span{
-                color:#0075b4;
-            }
-        }
-        &__subtitle{
-            margin-bottom:40px;
-        }
-
+#profile{
+    h3{
+        color: rgb(77, 76, 76);
     }
+    text-align: center;
+    margin: 5%;
+    padding: 2%;
+    width: 600px;
+    background-color: #aeaeaee0;
+    border: 0.25px solid darken(#aeaeaee0, 5%);
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
+    #profile_informations{
+        margin: 2%;
+    }
+    h4{
+        margin: 3% 0 3% 0;
+    }
+    p{
+        line-height: 1.7;
+    }
+    button{
+        width: 250px;
+        padding: 1%;
+    }
+}
 </style>

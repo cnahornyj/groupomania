@@ -1,23 +1,18 @@
 <template>
-    <div>
-        <h2>Partagez un post !</h2>
-        <form method="POST" v-on:submit.prevent="create()" id="formElem">
-            <div>
-                <label for="title">Titre de votre post</label>
-                <input type="text" name="title" id="title" value="" v-model="content" class="createPost__forminput" placeholder="Ecrivez votre titre ici">
+    <main>
+        <form method="POST" v-on:submit.prevent="create()">
+            <div class="group">
+                <input type="text" name="title" id="title" value="" v-model="content" placeholder="Ecrivez votre titre ici">
+                <span v-if="(!$v.content.required && $v.content.$dirty) && submited" class="error-message">Veuillez ajouter un titre</span><br>
             </div>
-
-            <div>
-                <label for="file" title="Choisir une image" role="button"><font-awesome-icon icon="images" /></label>
-                <input type="file" name="image" id="file" @change="onFileSelected" hidden>
-                <button type="submit" title="Valider"><font-awesome-icon icon="paper-plane" /></button>
+            <div class="group">
+                <input type="file" name="image" class="file" @change="onFileSelected" hidden>
+                <span v-if="(!$v.selectedFile.required && $v.selectedFile.$dirty) && submited" class="error-message">Veuillez ajouter une image</span>
+                <span v-if="selectedFile">Image sélectionnée : {{ selectedFile.name }}</span><br>
             </div>  
-
+            <button type="submit" title="Valider" id="btn-send-publication">Publier</button>
         </form>
-        <span v-if="selectedFile">Image sélectionnée : {{ selectedFile.name }}</span><br>
-        <span v-if="(!$v.content.required && $v.content.$dirty) && submited" >Veuillez ajouter un titre </span><br>
-        <span v-if="(!$v.selectedFile.required && $v.selectedFile.$dirty) && submited" >Veuillez ajouter une image </span>
-    </div>
+    </main>
 </template>
 
 <script>
@@ -75,7 +70,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>

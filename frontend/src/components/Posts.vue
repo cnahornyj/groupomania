@@ -1,25 +1,25 @@
 <template>
-    <div class="posts">
-        <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
-        <h1 class="posts__title"> Les Posts </h1>
-        <div class="post" id="post" v-for="post in posts" :key="post.postId">
-            
-            <div class="post__title">
-                <p class="post__user">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                <p class="post__desc">{{ post.content }}</p>
-                <button class="post__delete" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)">
-                    Supprimer 
-                    <font-awesome-icon icon="trash" />
-                </button>
-            </div>
-            <router-link :to="{name:'Post', params: {id : post.postId}}" class="post__link">
-                <div class="post__image">
-                    <img :src="post.imageUrl" :alt="post.content" class="post__img">
+    <main>
+        <div id="posts">
+            <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
+            <div id="post" v-for="post in posts" :key="post.postId">
+                <div id="title">
+                    <div>
+                        <p>{{ post.User.firstName }}  {{ post.User.lastName }}</p>
+                        <p>le {{ post.createdAt }}</p>
+                    </div>
+                    <div>
+                    <font-awesome-icon icon="trash" style="font-size: 20px; color:grey;" id="iconTrash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
+                    </div>
                 </div>
-            </router-link>
-            <Likes v-bind:post="post"/>
+                <p>{{ post.content }}</p>
+                <router-link :to="{name:'Post', params: {id : post.postId}}" class="">
+                    <img :src="post.imageUrl" :alt="post.content" id="imageLink">
+                </router-link>
+                <Likes v-bind:post="post"/>
+            </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <script>
@@ -86,84 +86,27 @@ export default {
 </script>
 
 <style lang="scss">
-    .posts{
-        width: 100%;
+    #title{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: auto;
-        &__title{
-            margin: 20px 0 34px;
-            font-size: 26px;
-            font-weight: 700;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 5%;
+        padding-bottom: 3%;
+        border-bottom: 1px solid whitesmoke;
+    }
+    #iconTrash{
+        &:hover{
+            transform: scale(1.2);
+            opacity: 1;
+            color: rgb(59, 58, 58) !important;
         }
     }
-
-    .post{
+    #imageLink{
+        width: 100%;
+        border: 0.5px outset grey;
         &:hover{
-            box-shadow: 0px 0px 30px hsla(0, 0%, 0%, 0.26);
+            filter: grayscale(60%);
         }
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-        background-color: white;
-
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.26);
-        transition: box-shadow ease-in-out 200ms;
-
-        &__title{
-            font-size: 15px;
-            margin-top: 10px;
-            padding: 10px;
-            position: relative;
-            z-index: 1;
-
-            p{
-                margin-bottom: 10px;
-            }
-        }
-        &__user{
-            font-weight: 600;
-        }
-        &__desc{
-            font-weight: 500;
-        }
-        &__date{
-            color: #9A9A9A;
-            font-weight: 300;
-        }
-        &__delete{
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            z-index: 2;
-            border: none;
-            padding: 5px 8px;
-            border-radius: 30px;
-            color: white;
-            background-color: #FD2D01;
-            cursor: pointer;
-            &:hover{
-                box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.199);
-            }
-        }
-        &__image{
-            width: 100%;
-        }
-        &__img{
-            width: 100%;
-            position: relative;
-            z-index: 0;
-            
-        }
-        &__link{
-            text-decoration: none;
-        }
-        &__commsAndLike{
-            margin-bottom: 20px;
-            padding: 10px;
-            position: relative;
-        }
-        
     }
 </style>

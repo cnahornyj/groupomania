@@ -7,26 +7,26 @@
             <div class="group">
                 <label for="firstName">Prénom</label>
                 <input type="text" name="firstName" id="firstName" placeholder="Jean" v-model="firstName">
-                <span class="errorMessage" v-if="(!$v.firstName.required && $v.firstName.$dirty) && submited">Veuillez ajouter votre prénom</span>
-                <span class="errorMessage" v-if="!$v.firstName.alpha && $v.firstName.$dirty">Veuillez ajouter un nom valide</span>
+                <span class="error-message" v-if="(!$v.firstName.required && $v.firstName.$dirty) && submited">Veuillez ajouter votre prénom</span>
+                <span class="error-message" v-if="!$v.firstName.alpha && $v.firstName.$dirty">Veuillez ajouter un nom valide</span>
             </div>
             <div class="group">
                 <label for="lastName">Nom</label>
                 <input type="text" name="lastName" id="lastName" placeholder="Dupont" v-model="lastName">
-                <span class="errorMessage" v-if="(!$v.lastName.required && $v.lastName.$dirty) && submited" >Veuillez ajouter votre nom</span>
-                <span class="errorMessage" v-if="(!$v.lastName.alpha && $v.lastName.$dirty) && submited" >Veuillez ajouter un prénom valide</span>
+                <span class="error-message" v-if="(!$v.lastName.required && $v.lastName.$dirty) && submited" >Veuillez ajouter votre nom</span>
+                <span class="error-message" v-if="(!$v.lastName.alpha && $v.lastName.$dirty) && submited" >Veuillez ajouter un prénom valide</span>
             </div>
             <div class="group">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" placeholder="exemple@hotmail.com" v-model="email" v-on:focus="deActivate">
-                <span class="errorMessage" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez saisir un email valide</span>
-                <span class="errorMessage" v-if="responseEmailError">Cette adresse mail n'est pas disponible</span>
+                <span class="error-message" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez saisir un email valide</span>
+                <span class="error-message" v-if="responseEmailError">Cette adresse mail n'est pas disponible</span>
             </div>
             <div class="group">
                 <label for="password">Mot de passe</label>
                 <input type="password" name="password" id="password" placeholder="••••••••••" v-model="password">
-                <span class="errorMessage" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
-                <span class="errorMessage" v-if="(!$v.password.minLength || !$v.password.maxLength) && $v.password.$dirty">Le mot de passe doit être entre {{ $v.password.$params.minLength.min }} et {{ $v.password.$params.maxLength.max }} </span>
+                <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
+                <span class="error-message" v-if="(!$v.password.minLength || !$v.password.maxLength) && $v.password.$dirty">Le mot de passe doit être entre {{ $v.password.$params.minLength.min }} et {{ $v.password.$params.maxLength.max }} </span>
             </div>
             <div class="navigation">
                 <router-link to="/Login" class="link" >SE CONNECTER</router-link>
