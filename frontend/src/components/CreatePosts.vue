@@ -2,11 +2,11 @@
     <main>
         <form method="POST" v-on:submit.prevent="create()">
             <div class="group">
-                <input type="text" name="title" id="title" value="" v-model="content" placeholder="Ecrivez votre titre ici">
+                <input type="text" name="title" aria-label="Contenu" class="title" v-model="content" placeholder="Ecrivez le contenu de votre post...">
                 <span v-if="(!$v.content.required && $v.content.$dirty) && submited" class="error-message">Veuillez ajouter un titre</span><br>
             </div>
             <div class="group">
-                <input type="file" name="image" class="file" @change="onFileSelected" hidden>
+                <input type="file" name="image" aria-label="Contenu" class="file" @change="onFileSelected" hidden>
                 <span v-if="(!$v.selectedFile.required && $v.selectedFile.$dirty) && submited" class="error-message">Veuillez ajouter une image</span>
                 <span v-if="selectedFile">Image sélectionnée : {{ selectedFile.name }}</span><br>
             </div>  

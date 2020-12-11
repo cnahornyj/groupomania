@@ -3,16 +3,17 @@
         <div id="posts">
             <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
             <div id="post" v-for="post in posts" :key="post.postId">
-                <div id="title">
-                    <div>
-                        <p>{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                        <p>le {{ post.createdAt }}</p>
+                <div class="title">
+                    <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
+                    <div class="publication-informations">
+                        <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
+                        <p>le {{ post.createdAt }}</p> <!-- Format exemple: 20 décembre 2020 -->
                     </div>
                     <div>
                     <font-awesome-icon icon="trash" style="font-size: 20px; color:grey;" id="iconTrash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
                     </div>
                 </div>
-                <p>{{ post.content }}</p>
+                <p class="post-content">{{ post.content }}</p>
                 <router-link :to="{name:'Post', params: {id : post.postId}}" class="">
                     <img :src="post.imageUrl" :alt="post.content" id="imageLink">
                 </router-link>
@@ -96,14 +97,15 @@ export default {
         border-bottom: 1px solid whitesmoke;
     }
     #iconTrash{
+        color: #424242 !important;
         &:hover{
             transform: scale(1.2);
             opacity: 1;
-            color: rgb(59, 58, 58) !important;
         }
     }
     #imageLink{
         width: 100%;
+        height: 100%;
         border: 0.5px outset grey;
         &:hover{
             filter: grayscale(60%);

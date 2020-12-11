@@ -104,16 +104,11 @@ export default {
 
 <style lang="scss" >
     .post{
-        &__likebox{
-            margin: 10px 0 10px 0;
-            padding: 10px;
-            position: relative;
-        }
         &__like{
         color: #424242;;
         font-size: 20px;
         :hover{
-            transform: scale(1.1);
+            transform: scale(1.2);
             color: #d1515a;
         }
     }

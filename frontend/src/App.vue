@@ -15,16 +15,16 @@ export default {
 @import '../src/assets/style.scss';
 
 * {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 	font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
 }
 
-#app {
-    background: url("assets/fond.jpg") no-repeat center fixed; 
-    -webkit-background-size: cover;
-    background-size: cover;
+body {
+    margin:0;
+    padding:0;
+    background: url("../src/assets/fond.jpg") no-repeat center fixed; 
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
 }
 
 </style>

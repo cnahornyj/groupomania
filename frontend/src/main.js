@@ -16,7 +16,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 
-
 Vue.config.productionTip = false
 
 

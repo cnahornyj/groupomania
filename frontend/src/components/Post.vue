@@ -1,17 +1,18 @@
 <template>
     <main>
         <div id="post" v-for="post in post" :key="post.postId">
-            <div id="title">
-                <div> 
-                    <p>{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                    <p>le {{ post.createdAt }}</p>
+            <div class="title">
+                <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
+                <div class="publication-informations"> 
+                    <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
+                    <p>le {{ post.createdAt }} </p>
                 </div>
                 <div>
                     <font-awesome-icon icon="pen" style="font-size: 20px; color:grey;" v-if="post.creator_Id == userId || userRole == 1"
                     v-on:click='toggleModale'/>
                 </div>
             </div>
-            <p>{{ post.content }}</p>
+            <p class="post-content">{{ post.content }}</p>
             <div>
                 <img :src="post.imageUrl" alt="" style="width: 100%;border: 0.5px outset grey;">
             </div>
@@ -68,7 +69,17 @@ export default {
     },
     beforeMount() {
         this.printPost()
+        },
+    computed:{ 
+        formattedDate() {
+            const myDate = this.post.createdAt;
+            const formatted = ('0' + myDate.getDate()).slice(-2) + '/'
+                    + ('0' + (myDate.getMonth()+1)).slice(-2) + '/'
+                    + myDate.getFullYear();
+            return formatted;
         }
     }
+}
+    
 
 </script>

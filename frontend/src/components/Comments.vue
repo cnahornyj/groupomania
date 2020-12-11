@@ -13,9 +13,9 @@
                 </div>
             </div>
             <p v-if="comment.modify == false">{{ comment.content }} </p>
-            <form method="POST" v-on:submit.prevent="modifyComm(comment.commentId, comment)" v-if="comment.modify == true">
-                <div role="button" title="Annuler" v-on:click="modifyPrompt(comment)">X</div>
-                <input type="text" v-model="comment.content">
+            <form method="POST" v-on:submit.prevent="modifyComm(comment.commentId, comment)" v-if="comment.modify == true" id="modify-comment-form">
+                <div role="button" id="modify-comment-btn-close" title="Annuler" v-on:click="modifyPrompt(comment)">X</div>
+                <input type="text" v-model="comment.content" id="modify-comment-input">
             </form>
         </div>
     </div>
@@ -107,3 +107,22 @@ export default {
     }
 
 </script>
+
+<style lang="scss">
+#modify-comment-form{
+    background-color: transparent;
+    width: 414px;
+    margin: -3% 0 0 -1%;
+    border: none;
+    box-shadow: none;
+    #modify-comment-btn-close {
+        float: right;
+        font-weight: bold;
+        margin: 5px -19px 0 0;
+    }
+    #modify-comment-input{
+        margin: 0 0 0 -6%;
+        width: 113%;
+    }
+}
+</style>

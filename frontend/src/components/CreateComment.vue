@@ -2,7 +2,8 @@
     <div id="create-comment">
         <form method="POST" v-on:submit.prevent='submit()'>
             <div>
-                <input type="text" v-model="comment" placeholder="Ecrivez un commentaire...">
+                <label for="comment"></label>
+                <input id="comment" type="text" v-model="comment" placeholder="Ecrivez un commentaire...">
                 <span v-if="(!$v.comment.required && $v.comment.$dirty) && submited" class="error-message">Veuillez écrire un commentaire avant de valider</span>
             </div>
         </form>

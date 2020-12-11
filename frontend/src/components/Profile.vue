@@ -4,7 +4,6 @@
         <div id="profile" v-for="user in profile" :key="user.userId">
             <h3>Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h3><hr>
             <div id="profile_informations">
-                <h4>Votre profil</h4>
                 <p>{{ user.firstName }} {{ user.lastName }}</p>
                 <p>{{ user.email }}</p>
                 <p>Vous êtes parmis nous depuis le {{ user.createdAt }}</p>

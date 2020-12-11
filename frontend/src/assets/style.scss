@@ -7,14 +7,8 @@ $primary-white: whitesmoke;
 
 // Barre de navigation
 nav {
-    box-sizing: border-box;
-    width: 100%;
-    margin: auto;
-    position: relative;
-    top: 0;
-    left: 0;
     display: flex;
-    padding: 20px;
+    padding: 10px;
     justify-content: space-between;
     border-bottom: thin solid darken($primary-blue, 5%);
     background-color: $primary-blue;
@@ -26,6 +20,9 @@ nav {
         ul {
             justify-content: flex-end;
         }
+    }
+    .logo-responsive{
+        display: none;
     }
     ul {
         list-style: none;
@@ -47,6 +44,40 @@ nav {
         }
     }
 }
+@media screen and (max-width: 922px) {
+    nav{
+        flex-direction: column;
+        .logo{
+            display:none;
+        }
+        .logo-responsive{
+            display: block;
+            margin: auto;
+            margin-bottom: 2%;
+            border-bottom: 1px solid white;
+        }
+        .logo-image-responsive{
+            svg{
+                width: 250px;
+                height: 60px;
+            }
+        }
+        .left-nav, .right-nav {
+            text-align: center;
+            width: auto;
+        }
+        ul{
+            display: inline-grid;
+            letter-spacing: 0.75px;
+            font-size: 125%;
+            //text-transform: uppercase;
+            font-weight: bold;
+        }
+        li{
+            margin: 5% 0 5% 0;
+        }
+    }
+  }
 //
 main{
     display: flex;
@@ -61,16 +92,54 @@ main{
         padding: 2%;
     }
     // Formulaires & posts
+    form{
+       margin: 8% 0 8% 0;
+    }
+    #post{
+        margin: 3% 0 3% 0;
+        .title{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $secondary-grey;
+            padding-bottom: 1%;
+            .photo-user{
+                width: 80px;
+                height: 80px;
+                border: 1px solid $secondary-grey;
+                border-radius: 40px;
+            }
+            .publication-informations{
+                font-weight: 400;
+                line-height: 0.5;
+                margin-right: 185px;
+                .user-complete-name{
+                    font-weight: 500;
+                }
+            }
+        }
+        .post-content{
+            text-align: justify;
+        }
+    }
     form, #post{
         width: 600px;
-        margin: 8% 0 8% 0;
-        padding: 6%;
+        padding: 4%;
         background-color: $primary-grey;
         border: 0.25px solid darken($primary-grey, 5%);
         border-radius: 5px;
         box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
         .group{
             margin: 6% 0 6% 0;
+            .title{
+                &:focus{
+                    background-color: lighten($primary-blue,70%);
+                }
+                &::placeholder{
+                    &:focus{
+                        background-color: $primary-blue;
+                    }
+                }
+            }
             .file{
                 height: 50px !important;
                 margin-left: -10px !important;
@@ -91,7 +160,6 @@ main{
             font-size: 115%;
             border-radius: 10px;
             border: 1px solid $primary-grey;
-            margin-bottom: 10px;
             padding: 4% 0 4% 2%; 
         }
         .error-message{
@@ -102,7 +170,7 @@ main{
             justify-content: space-between;
             margin-top: 50px;                
             .link, button{
-                width: 165px;
+                width: 200px;
                 border: 1px outset $primary-grey;
                 border-radius: 10px;
                 padding: 2.7%;
@@ -122,7 +190,9 @@ main{
         #btn-send-publication{
             float: right;
             &:hover{
-                background-color: rgb(80, 192, 80);
+                transform: scale(1.01);
+                color: #1F1F1F;
+                background-color: #5CC150;
             }
         }
     }
@@ -175,6 +245,16 @@ main{
             }
         }
     }
+    @media screen and (max-width: 648px){
+        form, #post{
+            width: 500px;
+        }
+    }
+    @media screen and (max-width: 540px){
+        form, #post{
+            width: 400px;
+        }
+    }
     // Profil de l'utilisateur
     #profile{
         text-align: center;
@@ -185,6 +265,9 @@ main{
         border: 0.25px solid darken(#aeaeaee0, 5%);
         border-radius: 5px;
         box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
+        h2{
+            color: $primary-blue;
+        }
         h3{
             span{
                 color: $primary-blue;
@@ -209,6 +292,16 @@ main{
             }
         }
     }
+    @media screen and (max-width: 648px){
+        #profile{
+            width: 500px;
+        }
+    }
+    @media screen and (max-width: 540px){
+        #profile{
+            width: 400px;
+        }
+    }
 }
 //
 button {
@@ -227,17 +320,18 @@ button {
     }
 }
 #post__likebox{
-    margin: 10px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
 }
 // Formulaire pour la création d'un commentaire
 #create-comment{
     form{
-        width: 400px !important;
-        margin: 0% !important;
-        padding: 0% !important;
-        border: none !important;
-        border-radius: 0px !important;
-        background-color: transparent !important;
+        width: 94%;
+        margin: 0%;
+        padding: 0%;
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
         box-shadow: none;
         input{
             width: 106.5%;
@@ -255,15 +349,15 @@ button {
         margin-top: 10px;
         border: 1px solid $primary-grey;
         border-radius: 20px;
-        padding: 2%;
+        padding: 0 2% 0 2%;
         background-color: lighten($primary-white,5%);
         #comment-user{
             font-weight: bold;
             font-size: 90%;
+            margin-bottom: -2%;
         }
         #toggle-options{
             float: right;
-            margin-top: -10px;
         }
         #scrolling-menu{
             position: absolute;
@@ -278,6 +372,5 @@ button {
                 }
             }
         }
-        // VOIR MODAL MODIFICATION DU COMMENTAIRE /!\
     }
 }
