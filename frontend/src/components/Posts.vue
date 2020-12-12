@@ -7,7 +7,7 @@
                     <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
                     <div class="publication-informations">
                         <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                        <p>le {{ post.createdAt }}</p> <!-- Format exemple: 20 décembre 2020 -->
+                        <p>le {{ post.createdAt | formatDate }}</p> <!-- Format exemple: 20 décembre 2020 -->
                     </div>
                     <div>
                     <font-awesome-icon icon="trash" style="font-size: 20px; color:grey;" id="iconTrash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>

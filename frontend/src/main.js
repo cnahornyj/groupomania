@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store/store'
 import router from './router'
+import moment from 'moment'
 
 
 // Utilisation des fontAwesome Icons
@@ -17,7 +18,11 @@ import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
-
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('DD/MM/YYYY hh:mm')
+  }
+});
 
 new Vue({
   store,

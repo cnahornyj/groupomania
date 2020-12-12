@@ -5,7 +5,7 @@
                 <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
                 <div class="publication-informations"> 
                     <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                    <p>le {{ post.createdAt }} </p>
+                    <p>le {{ post.createdAt | formatDate }} </p>
                 </div>
                 <div>
                     <font-awesome-icon icon="pen" style="font-size: 20px; color:grey;" v-if="post.creator_Id == userId || userRole == 1"
