@@ -4,18 +4,23 @@
             <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
             <div id="post" v-for="post in posts" :key="post.postId">
                 <div class="title">
-                    <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
-                    <div class="publication-informations">
-                        <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                        <p>le {{ post.createdAt | formatDate }}</p> <!-- Format exemple: 20 décembre 2020 -->
+                    <div class="user-bloc">
+                        <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
+                        <div class="publication-informations">
+                            <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
+                            <p>le {{ post.createdAt | formatDate }}</p>
+                        </div>
                     </div>
                     <div>
-                    <font-awesome-icon icon="trash" style="font-size: 20px; color:grey;" id="iconTrash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
+                    <font-awesome-icon icon="trash" id="icon-trash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
                     </div>
                 </div>
                 <p class="post-content">{{ post.content }}</p>
                 <router-link :to="{name:'Post', params: {id : post.postId}}" class="">
-                    <img :src="post.imageUrl" :alt="post.content" id="imageLink">
+                    <div id="bloc-image">
+                        <img :src="post.imageUrl" :alt="post.content" id="image-link">
+                        <font-awesome-icon icon="comments" id="icon-comment" title="Commenter le post" alt="Icône cliquable pour commenter"/>
+                    </div>
                 </router-link>
                 <Likes v-bind:post="post"/>
             </div>
@@ -39,7 +44,8 @@ export default {
             posts: "",
             userRole: "",
             userId: sessionStorage.getItem('userId'),
-            token: sessionStorage.getItem('usertoken')
+            token: sessionStorage.getItem('usertoken'),
+            imagePreview: "https://cdn.iconscout.com/icon/free/png-256/comment-28-433219.png"
         }
     },
     methods:{
@@ -76,6 +82,7 @@ export default {
             .catch(error => console.log({error}));
         }
     },
+    
     beforeMount() {
         const decodedToken = VueJwtDecode.decode(sessionStorage.getItem('usertoken'));
         const UserRole = decodedToken.role;
@@ -96,19 +103,36 @@ export default {
         padding-bottom: 3%;
         border-bottom: 1px solid whitesmoke;
     }
-    #iconTrash{
-        color: #424242 !important;
+    #icon-trash{
+        font-size: 20px;
+        color: #424242;
         &:hover{
             transform: scale(1.2);
             opacity: 1;
         }
     }
-    #imageLink{
-        width: 100%;
-        height: 100%;
-        border: 0.5px outset grey;
-        &:hover{
-            filter: grayscale(60%);
+    #bloc-image{
+        height: 360px;
+        #image-link{
+            width: 100%;
+            height: 100%;
+            border: 0.5px outset grey;
         }
-    }
+        #icon-comment{
+            width: 100%;
+            height: 100px;
+            color: #424242;
+            position: relative;
+            top: -230px;
+            visibility: hidden;
+        }
+        &:hover{
+            transition: 0.1s;
+            transition-timing-function: ease-in;
+            opacity: 0.5;
+            #icon-comment{
+                visibility: initial;
+            }
+        }
+}
 </style>

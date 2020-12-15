@@ -102,13 +102,18 @@ main{
             justify-content: space-between;
             border-bottom: 1px solid $secondary-grey;
             padding-bottom: 1%;
+            .user-bloc{
+                display: flex;
+            }
             .photo-user{
                 width: 80px;
                 height: 80px;
                 border: 1px solid $secondary-grey;
                 border-radius: 40px;
+                margin-right: 2%;
             }
             .publication-informations{
+                width: 175px;
                 font-weight: 400;
                 line-height: 0.5;
                 margin-right: 185px;
@@ -244,15 +249,50 @@ main{
                 background: darken($text-danger, 5%);
             }
         }
-    }
-    @media screen and (max-width: 648px){
-        form, #post{
-            width: 500px;
+        form {
+            background-color: #f7f7f7;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            input{
+                padding: 2% !important;
+            }
+        }
+        @media screen and (min-width: 650px) and (max-width: 700px){
+            .card{
+                max-width: 600px;
+                form{
+                    max-width: 500px;
+                }
+            }
+        }
+        @media screen and (min-width: 560px) and (max-width: 649px){
+            .card{
+                padding: 20px;
+            }
+        }
+        @media screen and (min-width: 530px) and (max-width: 559px){
+            .card{
+                max-width: 450px;
+                padding: 10px;
+                form{
+                    max-width: 435px;
+                }
+            }
+        }
+        @media screen and (max-width: 529px){
+            .card{
+                max-width: 450px;
+                padding: 5px;
+                form{
+                    max-width: 350px;
+                }
+            }
         }
     }
-    @media screen and (max-width: 540px){
+    @media screen and (max-width: 649px){
         form, #post{
-            width: 400px;
+            width: 500px;
         }
     }
     // Profil de l'utilisateur
@@ -265,8 +305,13 @@ main{
         border: 0.25px solid darken(#aeaeaee0, 5%);
         border-radius: 5px;
         box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
-        h2{
-            color: $primary-blue;
+        img {
+            max-width: 250px;
+            position: relative;
+            background: linear-gradient(to right, darken($primary-grey,10%), darken($primary-grey,20%));
+            margin-top: 6%;
+            padding: 0.75px;
+            border-radius: 50%;
         }
         h3{
             span{
@@ -275,17 +320,19 @@ main{
         }
         #profile_informations {
             margin: 6%;
+            line-height: 0.9;
             h4{
                 font-weight: 500;
                 margin: 3% 0 3% 0;
             }
             p{
-                line-height: 1.7;
+                font-size: 120%;
             }
         }
         button{
             width: 250px;
             padding: 1%;
+            margin-bottom: 6%;
             &:hover{
                 transform: scale(1.05);
                 background-color: darken($text-danger, 10%);
@@ -295,11 +342,6 @@ main{
     @media screen and (max-width: 648px){
         #profile{
             width: 500px;
-        }
-    }
-    @media screen and (max-width: 540px){
-        #profile{
-            width: 400px;
         }
     }
 }

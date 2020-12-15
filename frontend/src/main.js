@@ -7,10 +7,10 @@ import moment from 'moment'
 
 // Utilisation des fontAwesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faImages, faTrash, faPaperPlane, faHeart, faPen, faEllipsisH, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faImages, faTrash, faPaperPlane, faHeart, faPen, faEllipsisH, faTimes, faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faTrash, faImages, faPaperPlane, faHeart, faPen, faEllipsisH, faTimes)
+library.add(faTrash, faImages, faPaperPlane, faHeart, faPen, faEllipsisH, faTimes, faComments)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Utilisation de Vuelidate
