@@ -17,7 +17,7 @@
             }
             div {
                 font-family:Avenir;
-                font-size:32px;
+                font-size:20px;
                 display:inline-block;
                 overflow:hidden;
                 white-space:nowrap;
