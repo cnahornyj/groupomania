@@ -18,6 +18,7 @@
             div {
                 font-family:Avenir;
                 font-size:20px;
+                color: #122442;
                 display:inline-block;
                 overflow:hidden;
                 white-space:nowrap;
@@ -26,12 +27,14 @@
                 animation: showup 7s infinite;
             }
             div:last-of-type {
+                color: #5f5f5f;
                 width:0px;
                 animation: reveal 7s infinite;
             }
             div:last-of-type span {
                 margin-left:-355px;
                 animation: slidein 7s infinite;
+                font-size:18px;
             }
             @keyframes showup {
                 0% {opacity:0;}
