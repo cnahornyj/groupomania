@@ -10,16 +10,18 @@
                 font-size: 30px;
             }
             div:first-of-type {  
-                animation: showup 10s infinite;
+                animation: showup 10s;
+                animation-iteration-count: 1;
             }
             div:last-of-type {
-            width:0px;
-            animation: reveal 10s infinite;
+                width:0px;
+                animation: reveal 10s infinite;
             }
             div:last-of-type span {
-            margin-left:-355px;
-            animation: slidein 10s infinite;
-            font-size: 28px;
+                width: 500px;
+                margin-left:-500px;
+                animation: slidein 10s infinite;
+                font-size: 28px;
             }
             @keyframes showup {
                 0% {opacity:0;}
