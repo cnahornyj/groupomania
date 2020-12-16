@@ -3,7 +3,7 @@
         <div id="post" v-for="post in post" :key="post.postId">
             <div class="title">
                 <div class="user-bloc">
-                    <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
+                    <!--<img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>-->
                     <div class="publication-informations">
                         <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
                         <p>le {{ post.createdAt | formatDate }}</p>

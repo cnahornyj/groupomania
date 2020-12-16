@@ -1,26 +1,23 @@
 <template>
-    <div class="modale" v-if="revele" >
-        <main>
-            <div class="overlay" v-on:click="toggleModale"></div>
-            <div class="card">
-                <div v-on:click='toggleModale' class="btn-close-modal"><font-awesome-icon icon="times"/></div>
-                <h2>Modifiez votre post</h2>
-                <form method="POST" v-on:submit.prevent="modifyPost()">
-                    <div class="group">
-                        <input type="text" id="title" placeholder="Changez le nom du post" v-model="post.content">
+    <div class="modale" v-if="revele">
+        <div class="overlay" v-on:click="toggleModale"></div>
+        <div class="card">
+            <div v-on:click='toggleModale' class="btn-close-modal"><font-awesome-icon icon="times"/></div>
+            <form method="POST" v-on:submit.prevent="modifyPost()">
+                <div class="group">
+                    <input type="text" placeholder="Changez le nom du post" v-model="post.content">
+                </div>
+                <div class="group">
+                    <input type="file" class="file" @change="onFileSelected">
+                </div>
+                <button type="submit">MODIFIER</button>
+                <div v-show="success">
+                    <div id="response">
+                        <p>{{ message }}</p>
                     </div>
-                    <div class="group">
-                        <input type="file" id="image" class="file" @change="onFileSelected">
-                    </div>
-                    <button type="submit">MODIFIER</button>
-                    <div v-show="success">
-                        <div id="response">
-                            <p>{{ message }}</p>
-                        </div>
-                    </div>
-                </form> 
-            </div>
-        </main>   
+                </div>
+            </form> 
+        </div>
     </div>
 </template>
 

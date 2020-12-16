@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
             next();
         }
         else{
-            res.status(403).json({message: "Vous n'êtes pas autoriser à faire cette action"})
+            res.status(403).json({message: "Vous n'êtes pas autorisé à faire cette action"})
         }
     })
     .catch(error => res.send("Une erreur est survenue", error))

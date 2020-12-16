@@ -1,29 +1,27 @@
 <template>
     <main>
-        <div id="posts">
-            <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
-            <div id="post" v-for="post in posts" :key="post.postId">
-                <div class="title">
-                    <div class="user-bloc">
-                        <img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>
-                        <div class="publication-informations">
-                            <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
-                            <p>le {{ post.createdAt | formatDate }}</p>
-                        </div>
-                    </div>
-                    <div>
-                    <font-awesome-icon icon="trash" id="icon-trash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
+        <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
+        <div id="post" v-for="post in posts" :key="post.postId">
+            <div class="title">
+                <div class="user-bloc">
+                    <!--<img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>-->
+                    <div class="publication-informations">
+                        <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
+                        <p>le {{ post.createdAt | formatDate }}</p>
                     </div>
                 </div>
-                <p class="post-content">{{ post.content }}</p>
-                <router-link :to="{name:'Post', params: {id : post.postId}}" class="">
-                    <div id="bloc-image">
-                        <img :src="post.imageUrl" :alt="post.content" id="image-link">
-                        <font-awesome-icon icon="comments" id="icon-comment" title="Commenter le post" alt="Icône cliquable pour commenter"/>
-                    </div>
-                </router-link>
-                <Likes v-bind:post="post"/>
+                <div>
+                <font-awesome-icon icon="trash" id="icon-trash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
+                </div>
             </div>
+            <p class="post-content">{{ post.content }}</p>
+            <router-link :to="{name:'Post', params: {id : post.postId}}" class="">
+                <div id="bloc-image">
+                    <img :src="post.imageUrl" :alt="post.content" id="image-link">
+                    <font-awesome-icon icon="comments" id="icon-comment" title="Commenter le post" alt="Icône cliquable pour commenter"/>
+                </div>
+            </router-link>
+            <Likes v-bind:post="post"/>
         </div>
     </main>
 </template>

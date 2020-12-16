@@ -3,7 +3,7 @@
         <main>
         <div id="profile" v-for="user in profile" :key="user.userId">
             <h3>Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h3><hr>
-            <img src="../assets/alex.jpg" alt="Votre photo de profil"/>
+            <!--<img src="../assets/alex.jpg" alt="Votre photo de profil"/>-->
             <div id="profile_informations">
                 <p>{{ user.firstName }} {{ user.lastName }}</p>
                 <p>{{ user.email }}</p>
