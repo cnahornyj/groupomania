@@ -36,6 +36,7 @@
                 color: #5f5f5f;
                 margin-left:-355px;
                 animation: slidein 7s infinite;
+                font-size: 0;
             }
             @keyframes showup {
                 0% {opacity:0;}
