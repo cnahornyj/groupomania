@@ -19,6 +19,7 @@
             div:last-of-type span {
             margin-left:-355px;
             animation: slidein 7s infinite;
+            font-size: 25px;
             }
             @keyframes showup {
                 0% {opacity:0;}
@@ -42,7 +43,7 @@
 			</style>
             <div>Groupomania</div> 
             <div> 
-            <span>into amazing experiences</span>
+            <span>une nouvelle façon d'échanger</span>
             </div>
 		</div>
 	</foreignObject>
