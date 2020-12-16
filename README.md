@@ -6,4 +6,3 @@
 	<br>
 </div>
 
-Installation
