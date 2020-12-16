@@ -21,6 +21,8 @@
                 display:inline-block;
                 overflow:hidden;
                 white-space:nowrap;
+                font-weight: bold;
+                font-size: 20px;
             }
             div:first-of-type {  
                 color: #122442;
