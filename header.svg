@@ -6,6 +6,8 @@
                 display:inline-block;
                 overflow:hidden;
                 white-space:nowrap;
+                font-family: Avenir;
+                font-size: 30px;
             }
             div:first-of-type {  
                 animation: showup 7s infinite;
