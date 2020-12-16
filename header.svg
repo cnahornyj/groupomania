@@ -22,10 +22,8 @@
                 overflow:hidden;
                 white-space:nowrap;
                 font-weight: bold;
-                font-size: 15px;
             }
             div:first-of-type {  
-                color: #122442;
                 animation: showup 7s infinite;
             }
             div:last-of-type {
