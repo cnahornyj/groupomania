@@ -10,16 +10,16 @@
                 font-size: 30px;
             }
             div:first-of-type {  
-                animation: showup 7s infinite;
+                animation: showup 10s infinite;
             }
             div:last-of-type {
             width:0px;
-            animation: reveal 7s infinite;
+            animation: reveal 10s infinite;
             }
             div:last-of-type span {
             margin-left:-355px;
-            animation: slidein 7s infinite;
-            font-size: 25px;
+            animation: slidein 10s infinite;
+            font-size: 28px;
             }
             @keyframes showup {
                 0% {opacity:0;}
