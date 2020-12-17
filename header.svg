@@ -16,18 +16,12 @@
                 -webkit-transform: translate3d(0,0,0);
             }
             div {
+                font-size: 30px;
                 color: #122442;
                 display:inline-block;
                 overflow:hidden;
                 white-space:nowrap;
                 font-weight: bold;
-            }
-            div:first-of-type {  
-                animation: showup 7s infinite;
-            }
-            div:last-of-type {
-                width:0px;
-                animation: reveal 7s infinite;
             }
             div:last-of-type span {
                 font-weight: 500;
