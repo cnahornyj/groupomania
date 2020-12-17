@@ -50,6 +50,7 @@
             <div> 
             <span>une nouvelle manière d'échanger</span>
             </div>
+            <img src="frontend/src/assets/preview.png"/>
             <h2>Installation</h2>
             <h3>Technologies utilisées</h3>
             <h4>Frontend</h4>
