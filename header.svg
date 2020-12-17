@@ -15,7 +15,7 @@
                 -webkit-perspective: 1000;
                 -webkit-transform: translate3d(0,0,0);
             }
-            div {
+            #title {
                 font-family:Avenir;
                 color: #122442;
                 display:inline-block;
@@ -23,14 +23,14 @@
                 white-space:nowrap;
                 font-weight: bold;
             }
-            div:first-of-type {  
+            #title:first-of-type {  
                 animation: showup 7s infinite;
             }
-            div:last-of-type {
+            #subtitle {
                 width:0px;
                 animation: reveal 7s infinite;
             }
-            div:last-of-type span {
+            #subtitle span {
                 font-weight: 500;
                 color: #aeaeaee0;
                 margin-left:-355px;
@@ -56,9 +56,9 @@
                 100% {opacity:0;width:355px;}
             }
 			</style>
-            <div>Groupomania</div> 
-            <div> 
-            <span>une nouvelle manière d'échanger</span>
+            <div id="title">Groupomania</div> 
+            <div id="subtitle"> 
+                <span>une nouvelle manière d'échanger</span>
             </div>
             <h2>Installation</h2>
             <h3>Technologies utilisées</h3>
