@@ -77,14 +77,6 @@ export default {
 
 <style lang="scss">
 // A MODIFIER NE FONCTIONNE PAS /!\
-.error-message{
-    background-color: red;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 1px solid rgba(0, 0, 0, 0.219);
-    border-radius: 10px;
-    color:rgb(32, 104, 29);
-}
 .success{
     background-color: rgba(10, 173, 4, 0.2);
     margin-top: 20px;

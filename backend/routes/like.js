@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const userCtrl = require('../controllers/like');
+const likeCtrl = require('../controllers/like');
 const auth = require('../middleware/auth');
 
 // Modération des likes
-router.put('/:id', auth, userCtrl.moderateLikes)
+router.put('/:id', auth, likeCtrl.moderateLikes)
 
-// récupération des likes liés au Post
-router.get('/:id', auth, userCtrl.getLikesfromPost);
+// Récupération des likes liés au post
+router.get('/:id', auth, likeCtrl.getLikesfromPost);
 
 
 

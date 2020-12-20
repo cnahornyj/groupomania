@@ -50,9 +50,22 @@
             <div> 
             <span>une nouvelle manière d'échanger</span>
             </div>
-            <img src="frontend/src/assets/preview.png"/>
+            // Prerequisites
+            You will need to have Node and npm installed locally on your machine.
+
+            Installation
+            Clone this repo. From within the project folder, run npm install. You can then run the server with node server. The server should run on localhost with default port 3000. If the server runs on another port for any reason, this is printed to the console when the server starts, e.g. Listening on port 3001.
+            <h2>Prérequis</h2>
+            <p>Avoir Node et NPM installés sur votre machine</p>
             <h2>Installation</h2>
             <h3>Technologies utilisées</h3>
+            Backend
+                Serveur Node.js avec Framework Express
+                Base de Données MySQL (+ test de Sequelize avec SQLite sur le controller "user.js": voir la branche git "sequelize")
+                API REST
+            Frontend
+                Framework VueJS
+                SCSS (sans framework css)
             <h4>Frontend</h4>
             <h4>Backend</h4>
 		</div>

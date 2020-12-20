@@ -3,7 +3,6 @@
         <div id="post" v-for="post in post" :key="post.postId">
             <div class="title">
                 <div class="user-bloc">
-                    <!--<img class="photo-user" src="../assets/alex.jpg" alt="Photo de profil de l'utilisateur"/>-->
                     <div class="publication-informations">
                         <p class="user-complete-name">{{ post.User.firstName }}  {{ post.User.lastName }}</p>
                         <p>le {{ post.createdAt | formatDate }}</p>
@@ -35,8 +34,7 @@ export default {
     components:{
         Comments,
         Likes,
-        ModalePost,
-        
+        ModalePost,   
     },
     data(){
         return {
@@ -70,15 +68,6 @@ export default {
     },
     beforeMount() {
         this.printPost()
-        },
-    computed:{ 
-        formattedDate() {
-            const myDate = this.post.createdAt;
-            const formatted = ('0' + myDate.getDate()).slice(-2) + '/'
-                    + ('0' + (myDate.getMonth()+1)).slice(-2) + '/'
-                    + myDate.getFullYear();
-            return formatted;
-        }
     }
 }
     

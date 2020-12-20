@@ -16,7 +16,7 @@ const likeRoutes = require('./routes/like');
 const app = express();
 
 
-// Connection à la database
+// Connection à la bdd
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const { urlencoded } = require('body-parser');
 const { addHook } = require('./models/User');

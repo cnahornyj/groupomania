@@ -60,22 +60,6 @@ exports.deleteOneUser = (req, res, next) => {
     .catch(error => res.status(400).json({error}));
 }
 
-// Modification d'un utilisateur de la base de données
-exports.modifyOneUser = (req, res, next) => {
-    User.update({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-    },
-    {
-        where: {
-            userId: req.params.id
-        }
-    })
-    .then(() => res.status(200).json({message: "Utilisateur modifié"}))
-    .catch(error => res.status(400).json({error}));
-}
-
 // Vérification de l'utilisateur pour accéder à l'app
 exports.authenticate = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
