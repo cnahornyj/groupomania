@@ -32,7 +32,7 @@ Post.hasMany(Like, {foreignKey: "post_Id", onDelete: "cascade"});
 Like.belongsTo(Post, {foreignKey: "post_Id", onDelete: "cascade"});
 
 Like.sync()
-.then(() => console.log('La table Like a été créée dans la base de donnée'))
+.then(() => console.log('La table Like a été créée dans la base de données'))
 .catch(error => console.error('Une erreur est survenue', error));
 
 module.exports = Like;

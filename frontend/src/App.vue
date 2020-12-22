@@ -12,7 +12,6 @@ export default {
 
 <style lang="scss">
 
-@import '../src/assets/style.scss';
 
 * {
 	box-sizing: border-box;

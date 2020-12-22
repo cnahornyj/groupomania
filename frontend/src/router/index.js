@@ -8,12 +8,7 @@ import Post from '../views/Post'
 import Axios from 'axios'
 import store from '../store/store'
 
-
 Vue.use(VueRouter)
-
-
-  
-  
 
 const routes = [
   {

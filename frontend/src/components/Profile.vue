@@ -1,22 +1,22 @@
 <template>
     <div class="profile">
         <main>
-        <div id="profile" v-for="user in profile" :key="user.userId">
-            <h3>Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h3><hr>
-            <div id="profile_informations">
-                <p>{{ user.firstName }} {{ user.lastName }}</p>
-                <p>{{ user.email }}</p>
-                <p>Vous êtes parmis nous depuis le {{ user.createdAt | formatDate }}</p>
-            </div> 
-            <button @click="toggleModale">Supprimer mon compte</button>
-            <div id="modal-confirmation" v-if="showModal===true" @close="toggleModale">
-                <hr>
-                <p id="confirm-delete">Etes vous sûr de vouloir supprimer votre compte ?</p>
-                <button id="confirm" @click="deleteAccount">OUI</button>
-                <button id="cancel" @click="toggleModale">NON</button>
+            <div id="profile" v-for="user in profile" :key="user.userId">
+                <h3>Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h3><hr>
+                <div id="profile_informations">
+                    <p>{{ user.firstName }} {{ user.lastName }}</p>
+                    <p>{{ user.email }}</p>
+                    <p>Vous êtes parmis nous depuis le {{ user.createdAt | formatDate }}</p>
+                </div> 
+                <button @click="toggleModale">Supprimer mon compte</button>
+                <div id="modal-confirmation" v-if="showModal===true" @close="toggleModale">
+                    <hr>
+                    <p id="confirm-delete">Etes vous sûr de vouloir supprimer votre compte ? Tous vos posts et commentaires seront supprimés</p>
+                    <button id="confirm" @click="deleteAccount">OUI</button>
+                    <button id="cancel" @click="toggleModale">NON</button>
+                </div>
             </div>
-        </div>
-       </main>
+        </main>
     </div>
 </template>
 
@@ -71,46 +71,88 @@ export default {
 </script>
 
 <style lang="scss">
-#profile{
-    h3{
-        color: rgb(77, 76, 76);
-    }
-    text-align: center;
-    margin: 5%;
-    padding: 2%;
-    width: 600px;
-    background-color: #aeaeaee0;
-    border: 0.25px solid darken(#aeaeaee0, 5%);
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
-    #modal-confirmation{
-        #confirm, #cancel{
-            width: 100px;
-            margin: 2%;
-        }
-        #confirm{
-            &:hover{
-                transform: scale(1.01);
-                color: #1F1F1F;
-                background-color: #5CC150;
+
+// Palette de couleurs
+$primary-blue: #122442;
+$text-danger: #d1515a;
+$primary-grey: #aeaeaee0;
+$secondary-grey: #424242;
+$primary-white: whitesmoke;
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #profile{
+        text-align: center;
+        margin: 5%;
+        padding: 2%;
+        width: 600px;
+        background-color: #aeaeaee0;
+        border: 0.25px solid darken(#aeaeaee0, 5%);
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
+        h3{
+            span{
+                color: $primary-blue;
+            }
+        }    
+        #profile_informations {
+            margin: 6%;
+            line-height: 0.9;
+            p{
+                font-size: 120%;
             }
         }
-        p{
+        button {
+            width: 200px;
+            border: 1px outset $primary-grey;
+            background-color: $primary-blue;
+            color: white;
+            border-radius: 10px;
+            padding: 2.7%;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
             font-weight: bold;
+            &:hover{
+                background: darken($primary-blue, 5%);
+                transform: scale(1.01);
+            }
+        }
+        #modal-confirmation{
+            #confirm, #cancel{
+                width: 100px;
+                margin: 1% 4% 3% 4%;
+            }
+            #confirm{
+                &:hover{
+                    transform: scale(1.01);
+                    color: #1F1F1F;
+                    background-color: #5CC150;
+                }
+            }
+            p{
+                font-weight: bold;
+            }
+        }
+        button{
+            width: 250px;
+            padding: 1%;
+            margin-bottom: 6%;
+            background-color: $primary-blue;
+            &:hover{
+                transform: scale(1.05);
+                background-color: darken($text-danger, 10%);
+            }
         }
     }
-    #profile_informations{
-        margin: 2%;
-    }
-    h4{
-        margin: 3% 0 3% 0;
-    }
-    p{
-        line-height: 1.7;
-    }
-    button{
-        width: 250px;
-        padding: 1%;
+}
+// Responsive du profil utilisateur
+@media screen and (max-width: 648px){
+    #profile{
+        width: 500px;
     }
 }
 

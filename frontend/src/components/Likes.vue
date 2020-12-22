@@ -1,7 +1,7 @@
 <template>
     <div id="post__likebox">
         <p>{{ numberOfLikes }} j'aime(s)</p>
-        <p class="post__like" title="like" role="button" :id="post.postId" v-on:click="Likes()"><font-awesome-icon icon="heart"/></p>
+        <p class="post__like" role="button" :id="post.postId" v-on:click="Likes()"><font-awesome-icon icon="heart"/></p>
     </div>
         
 </template>
@@ -102,7 +102,11 @@ export default {
 
 </script>
 
-<style lang="scss" >
+<style lang="scss">
+    #post__likebox{
+        display: flex;
+        justify-content: space-between;
+    }
     .post{
         &__like{
         color: #424242;;

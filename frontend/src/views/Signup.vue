@@ -67,8 +67,8 @@ export default {
         },
         password:{
             required,
-            maxLength: maxLength(18),
-            minLength: minLength(6)
+            minLength: minLength(6),
+            maxLength: maxLength(18)  
         }
     },
     methods: {
@@ -118,3 +118,192 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+// Palette de couleurs
+$primary-blue: #122442;
+$text-danger: #d1515a;
+$primary-grey: #aeaeaee0;
+$secondary-grey: #424242;
+$primary-white: whitesmoke;
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    header{
+        background-color: $primary-blue;
+        width: 100%;
+        text-align: center;
+        padding: 2%;
+    }
+    form{
+        margin: 5% 0 5% 0;
+        width: 500px;
+        padding: 3%;
+        background-color: $primary-grey;
+        border: 0.25px solid darken($primary-grey, 5%);
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px 0px rgba(72, 79, 88,1);
+        .group{
+            margin: 6% 0 6% 0;
+            label{
+                margin-left: 1%;
+                font-weight: 500;
+            }
+            input{
+            display: block;
+            width: 100%;
+            height: 25px;
+            font-size: 100%;
+            border-radius: 10px;
+            border: 1px solid $primary-grey;
+            padding: 4% 0 4% 2%; 
+            }
+            .file{
+                height: 50px !important;
+                margin-left: -10px !important;
+                border: none !important;
+            }
+            .error-message{
+            color: $text-danger;
+            }
+        }
+        .navigation{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;                
+            button{
+                width: 200px;
+                border: 1px outset $primary-grey;
+                background-color: $primary-blue;
+                color: white;
+                border-radius: 10px;
+                padding: 2.7%;
+                font-size: 18px;
+                font-weight: bold;
+                &:hover{
+                background: darken($primary-blue, 5%);
+                transform: scale(1.01);
+                }
+            }
+            .link{
+                width: 200px;
+                border: 1px outset $primary-grey;
+                background-color: $primary-white;
+                color: $primary-blue;
+                border-radius: 10px;
+                padding: 2.7%;
+                font-size: 18px;
+                text-decoration: none;
+                text-align: center;
+                font-weight: bold;
+                &:hover{
+                background: darken($primary-white, 5%);
+                transform: scale(1.01);
+                }
+            }
+        }
+        button{
+            width: 150px;
+            float: right;
+            border: 1px outset $primary-grey;
+            background-color: $primary-blue;
+            color: white;
+            border-radius: 10px;
+            padding: 2.7%;
+            font-size: 18px;
+            font-weight: bold;
+            &:hover{
+            background: darken($primary-blue, 5%);
+            transform: scale(1.01);
+            }
+        }    
+    }
+}
+
+// Responsive
+@media screen and (min-width: 300px) and (max-width: 325px){
+main{
+    form {
+        width: 280px;
+        margin: 10% 0 10% 0;
+        .group{
+            margin: 4% 0 8% 0;
+            label{
+                font-weight: 500;
+            }
+            input{
+                margin-top: 1%;
+                height: 30px;
+            }
+        }
+        .navigation{
+            margin: 10% 0 5% 0;
+            .link, button{
+                width: 125px;
+                font-size: 14px;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 326px) and (max-width: 400px){
+main{
+    form {
+        width: 300px;
+        margin: 10% 0 10% 0;
+        .navigation{
+            margin: 10% 0 5% 0;
+        .link, button{
+            width: 125px;
+            font-size: 14px;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 401px) and (max-width: 425px){
+main{
+    form {
+        width: 340px;
+        margin: 10% 0 10% 0;
+        .navigation{
+            margin: 10% 0 5% 0;
+        .link, button{
+            width: 150px;
+            font-size: 14px;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 500px){
+main{
+    form {
+        width: 400px;
+        .navigation{
+            margin: 10% 0 5% 0;
+        .link, button{
+            font-size: 16px;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 501px) and (max-width: 525px){
+main{
+    form {
+        width: 450px;
+        }
+    }
+}
+@media screen and (min-width: 526px) and (max-width: 600px){
+main{
+    form {
+        width: 490px;
+        }
+    }
+}
+</style>

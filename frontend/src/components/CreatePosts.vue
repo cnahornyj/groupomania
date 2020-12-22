@@ -10,7 +10,7 @@
                 <span v-if="(!$v.selectedFile.required && $v.selectedFile.$dirty) && submited" class="error-message">Veuillez ajouter une image</span>
                 <span v-if="selectedFile">Image sélectionnée : {{ selectedFile.name }}</span><br>
             </div>  
-            <button type="submit" title="Valider" id="btn-send-publication">Publier</button>
+            <button type="submit" id="btn-send-publication">Publier</button>
         </form>
     </main>
 </template>
@@ -70,3 +70,4 @@ export default {
     }
 }
 </script>
+

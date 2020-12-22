@@ -9,10 +9,10 @@
                     </div>
                 </div>
                 <div>
-                <font-awesome-icon icon="pen" style="font-size: 20px; color:grey;" v-if="post.creator_Id == userId || userRole == 1" v-on:click='toggleModale'/>
+                <font-awesome-icon icon="pen" id="icon-pen" v-if="post.creator_Id == userId || userRole == 1" v-on:click='toggleModale'/>
                 </div>
             </div>
-            <p class="post-content">{{ post.content }}</p>
+            <p>{{ post.content }}</p>
             <div>
                 <img :src="post.imageUrl" alt="Image relative au post" style="width: 100%;border: 0.5px outset grey;">
             </div>
@@ -73,3 +73,20 @@ export default {
     
 
 </script>
+
+<style lang="scss">
+
+$secondary-grey: #424242;
+#post {
+    margin: 2% 0 2% 0 !important;
+}
+#icon-pen{
+    font-size: 20px;
+    color: $secondary-grey;
+    &:hover{
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+        
+</style>

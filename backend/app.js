@@ -12,7 +12,7 @@ const postRoutes = require('./routes/post');
 const commentRoutes = require('./routes/comment');
 const likeRoutes = require('./routes/like');
 
-//Initialisation de l'application avec le framework express
+// Initialisation de l'application avec le framework express
 const app = express();
 
 

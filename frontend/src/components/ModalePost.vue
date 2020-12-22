@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss">
-// A MODIFIER NE FONCTIONNE PAS /!\
+/*
 .success{
     background-color: rgba(10, 173, 4, 0.2);
     margin-top: 20px;
@@ -84,5 +84,75 @@ export default {
     border: 1px solid rgba(0, 0, 0, 0.219);
     border-radius: 10px;
     color:rgb(32, 104, 29);
+}*/
+// Palette de couleurs
+$primary-blue: #122442;
+$text-danger: #d1515a;
+$primary-grey: #aeaeaee0;
+$secondary-grey: #424242;
+$primary-white: whitesmoke;
+
+.modale{
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index: 2;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .overlay{
+        position: fixed;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000050;
+    }
+    .card{
+        position: relative;
+        background-color: whitesmoke;
+        max-width: 800px;
+        border-radius: 10px;
+        padding: 25px;
+        .btn-close-modal{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $text-danger;
+            height: 25px;
+            width: 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+                &:hover{
+                    background: darken($text-danger, 5%);
+                }
+            }
+        form {
+            background-color: #f7f7f7;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            .group{
+            margin: 6% 0 6% 0;
+                input{
+                    padding: 2% !important;
+                }
+                .file{
+                    height: 50px !important;
+                    margin-left: -10px !important;
+                    border: none !important;
+                }
+            }  
+        }
+    }
 }
 </style>

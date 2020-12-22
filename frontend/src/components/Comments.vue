@@ -109,20 +109,58 @@ export default {
 </script>
 
 <style lang="scss">
-#modify-comment-form{
-    background-color: transparent;
-    width: 414px;
-    margin: -3% 0 0 -1%;
-    border: none;
-    box-shadow: none;
-    #modify-comment-btn-close {
-        float: right;
-        font-weight: bold;
-        margin: 5px -19px 0 0;
-    }
-    #modify-comment-input{
-        margin: 0 0 0 -6%;
-        width: 113%;
+// Palette de couleurs
+$primary-blue: #122442;
+$text-danger: #d1515a;
+$primary-grey: #aeaeaee0;
+$secondary-grey: #424242;
+$primary-white: whitesmoke;
+
+#commentaires{
+    #comments-list{
+        margin-top: 10px;
+        border: 1px solid $primary-grey;
+        border-radius: 20px;
+        padding: 0 2% 0 2%;
+        background-color: lighten($primary-white,5%);
+        #comment-user{
+            font-weight: bold;
+            font-size: 90%;
+            margin-bottom: -2%;
+        }
+        #toggle-options{
+            float: right;
+        }
+        #scrolling-menu{
+            position: absolute;
+            border: 1.5px outset darken($primary-grey, 5%);
+            border-radius: 5px;
+            margin: 10px 0 0 325px;
+            background-color: $primary-grey;
+            padding: 10px;
+            .option{
+                &:hover{
+                    font-weight: 500;
+                }
+            }
+        }
+        form{
+            background-color: transparent !important;
+            width: 100% !important;
+            margin: -3% 0 0 -1% !important;
+            border: none !important;
+            box-shadow: none !important;
+            #modify-comment-btn-close {
+                    float: right;
+                    font-weight: bold;
+                    margin: 5px -19px 0 0;
+                }
+            #modify-comment-input{
+                margin: 0 0 0 -5%;
+                width: 110%;
+            }
+        }
     }
 }
+
 </style>

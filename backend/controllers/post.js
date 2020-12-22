@@ -66,10 +66,10 @@ exports.modifyOnePost = (req, res, next) => {
                     }
                 })
                 .then(() => res.status(200).json({message: "Votre post a été modifié !"}))
-                .catch(error => res.status(400).json({message: "Je n'ais pas pu modifier votre Post" + error}));
+                .catch(error => res.status(400).json({message: "Votre post n'a pas pu être modifié" + error}));
             })
         })
-        .catch(error => console.log("Je n'ai pas pu trouvé votre Post", error))
+        .catch(error => console.log("Post introuvable", error))
         
     } else {
         Post.update({
@@ -81,7 +81,7 @@ exports.modifyOnePost = (req, res, next) => {
             }
         })
         .then(() => res.status(200).json({message: "Votre post a été modifié !"}))
-        .catch(error => res.status(400).json({message: "Je n'ais pas pu modifier votre Post" + error}));
+        .catch(error => res.status(400).json({message: "Votre post n'a pas pu être modifié" + error}));
     }
 };
 

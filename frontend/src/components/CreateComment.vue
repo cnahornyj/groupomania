@@ -58,3 +58,35 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+// Palette de couleurs
+$primary-blue: #122442;
+$text-danger: #d1515a;
+$primary-grey: #aeaeaee0;
+$secondary-grey: #424242;
+$primary-white: whitesmoke;
+
+#create-comment{
+    form{
+        width: 94%;
+        margin: 0%;
+        padding: 0%;
+        border: none;
+        border-radius: 0px;
+        background-color: transparent;
+        box-shadow: none;
+        input{
+            width: 106.5%;
+            font-size: 100%;
+            background-color: $primary-white;
+            &:focus{
+                background-color: lighten($primary-blue,80%);
+            }
+        }
+        .error-message{
+            color: $text-danger;
+        }
+    }
+}
+</style>

@@ -41,13 +41,12 @@ const User = sequelize.define('User', {
         type: DataTypes.DATE,
         allowNull:false,
         defaultValue: Sequelize.NOW
-    }
-    
+    }    
 });
 
 
 User.sync()
-.then(() => console.log('La table Post a été créée dans la base de donnée'))
+.then(() => console.log('La table User a été créée dans la base de données'))
 .catch(error => console.error('Une erreur est survenue', error));
 
 module.exports = User;

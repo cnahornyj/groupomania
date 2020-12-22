@@ -37,7 +37,7 @@ Post.belongsTo(User, {foreignKey: 'creator_Id', onDelete:'cascade'});
 User.hasMany(Post, {foreignKey: 'creator_Id', onDelete:'cascade'});
 
 Post.sync()
-.then(() => console.log('La table Post a été créée dans la base de donnée'))
+.then(() => console.log('La table Post a été créée dans la base de données'))
 .catch(error => console.error('Une erreur est survenue', error));
 
 module.exports = Post;
