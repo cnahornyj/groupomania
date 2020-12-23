@@ -8,7 +8,7 @@
                         <p>le {{ post.createdAt | formatDate }}</p>
                     </div>
                 </div>
-                <div>
+                <div class="div-icon">
                 <font-awesome-icon icon="pen" id="icon-pen" v-if="post.creator_Id == userId || userRole == 1" v-on:click='toggleModale'/>
                 </div>
             </div>
@@ -78,7 +78,7 @@ export default {
 
 $secondary-grey: #424242;
 #post {
-    margin: 2% 0 2% 0 !important;
+    margin: 2% 0 2% 0;
 }
 #icon-pen{
     font-size: 20px;

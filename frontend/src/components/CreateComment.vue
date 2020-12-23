@@ -80,6 +80,9 @@ $primary-white: whitesmoke;
             width: 106.5%;
             font-size: 100%;
             background-color: $primary-white;
+            border-radius: 10px;
+            border: 1px solid $primary-grey;
+            padding: 2%; 
             &:focus{
                 background-color: lighten($primary-blue,80%);
             }

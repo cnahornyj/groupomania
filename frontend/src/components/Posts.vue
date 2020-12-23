@@ -122,7 +122,7 @@ main{
                 display: flex;
             }
             .div-icon {
-                margin-left: -20%;
+                margin-left: -50%;
             }
             #icon-trash{
                 font-size: 20px;
@@ -170,7 +170,6 @@ main{
 }
 
 // RESPONSIVE
-// POSITIONNER L'ICON POUBELLE DIFFEREMMENT
 @media screen and (min-width: 300px) and (max-width: 325px){
 main{
     #post {
@@ -199,15 +198,16 @@ main{
 main{
     #post {
         width: 400px;
+        margin: 5% 0 5% 0;
         }
     }
 }
 // A PARTIR DE CETTE RESOLUTION D'ECRAN OK POUR LES BOUTONS 
-// A PARTIR DE CETTE RESOLUTION D'ECRAN OK POUR L'ICON POUBELLE
 @media screen and (min-width: 501px) and (max-width: 525px){
 main{
     #post {
         width: 450px;
+        margin: 5% 0 5% 0;
         }
     }
 }
@@ -218,5 +218,4 @@ main{
         }
     }
 }
-
 </style>

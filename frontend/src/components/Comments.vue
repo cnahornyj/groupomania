@@ -153,14 +153,17 @@ $primary-white: whitesmoke;
             #modify-comment-btn-close {
                     float: right;
                     font-weight: bold;
-                    margin: 5px -19px 0 0;
+                    margin: 6px -14px 0 0;
                 }
             #modify-comment-input{
-                margin: 0 0 0 -5%;
-                width: 110%;
+                margin: 1% 0 0 -2%;
+                width: 100%;
+                font-size: 90%;
+                border-radius: 10px;
+                border: 1px solid grey;
+                padding: 1% 0 1% 1%;
             }
         }
     }
 }
-
 </style>
