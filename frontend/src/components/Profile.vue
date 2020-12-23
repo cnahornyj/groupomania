@@ -6,12 +6,13 @@
                 <div id="profile_informations">
                     <p>{{ user.firstName }} {{ user.lastName }}</p>
                     <p>{{ user.email }}</p>
-                    <p>Vous êtes parmis nous depuis le {{ user.createdAt | formatDate }}</p>
+                    <p>Vous êtes parmis nous depuis le :</p>
+                    <p>{{ user.createdAt | formatDate }}</p>
                 </div> 
                 <button @click="toggleModale">Supprimer mon compte</button>
                 <div id="modal-confirmation" v-if="showModal===true" @close="toggleModale">
                     <hr>
-                    <p id="confirm-delete">Etes vous sûr de vouloir supprimer votre compte ? Tous vos posts et commentaires seront supprimés</p>
+                    <p id="confirm-delete">Etes vous sûr de vouloir supprimer votre compte ?</p>
                     <button id="confirm" @click="deleteAccount">OUI</button>
                     <button id="cancel" @click="toggleModale">NON</button>
                 </div>
@@ -88,7 +89,7 @@ main{
         text-align: center;
         margin: 5%;
         padding: 2%;
-        width: 600px;
+        width: 500px;
         background-color: #aeaeaee0;
         border: 0.25px solid darken(#aeaeaee0, 5%);
         border-radius: 5px;
@@ -149,10 +150,52 @@ main{
         }
     }
 }
-// Responsive du profil utilisateur
-@media screen and (max-width: 648px){
-    #profile{
-        width: 500px;
+// RESPONSIVE
+@media screen and (min-width: 300px) and (max-width: 325px){
+main{
+    #profile {
+        width: 280px;
+        margin: 10% 0 10% 0;
+        }
+    }
+}
+@media screen and (min-width: 326px) and (max-width: 400px){
+main{
+    #profile {
+        width: 300px;
+        margin: 10% 0 10% 0;
+        }
+    }
+}
+@media screen and (min-width: 401px) and (max-width: 425px){
+main{
+    #profile {
+        width: 340px;
+        margin: 10% 0 10% 0;
+        }
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 500px){
+main{
+    #profile {
+        width: 400px;
+        margin: 5% 0 5% 0;
+        }
+    }
+}
+@media screen and (min-width: 501px) and (max-width: 525px){
+main{
+    #profile {
+        width: 450px;
+        margin: 5% 0 5% 0;
+        }
+    }
+}
+@media screen and (min-width: 526px) and (max-width: 600px){
+main{
+    #profile {
+        width: 490px;
+        }
     }
 }
 
