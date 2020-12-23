@@ -26,7 +26,7 @@
                 <label for="password">Mot de passe</label>
                 <input type="password" name="password" id="password" placeholder="••••••••••" v-model="password">
                 <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
-                <span class="error-message" v-if="(!$v.password.minLength || !$v.password.maxLength) && $v.password.$dirty">Le mot de passe doit être entre {{ $v.password.$params.minLength.min }} et {{ $v.password.$params.maxLength.max }} </span>
+                <span class="error-message" v-if="(!$v.password.isPasswordStrong) && $v.password.$dirty">Le mot de passe doit être contenir minimum 8 caractères avec au moins une minuscule, une majuscule, un chiffre et un caractère spécial</span>
             </div>
             <div class="navigation">
                 <router-link to="/Login" class="link" >SE CONNECTER</router-link>
@@ -39,7 +39,7 @@
 <script>
 
 import axios from 'axios'
-import { required, minLength, maxLength, alpha, email} from 'vuelidate/lib/validators'
+import { required, alpha, email} from 'vuelidate/lib/validators'
 export default {
     name: 'Signup',
     data(){
@@ -67,8 +67,10 @@ export default {
         },
         password:{
             required,
-            minLength: minLength(6),
-            maxLength: maxLength(18)  
+            isPasswordStrong(password) {
+                const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&]){8,}/;
+                return regex.test(password);
+            }
         }
     },
     methods: {
@@ -78,8 +80,7 @@ export default {
         submitForm() {
             this.$v.$touch();
             this.submited = true;
-            console.log(!this.$v.password.minLength);
-            console.log(!this.$v.password.maxLength);
+            console.log(!this.$v.password.isPasswordStrong);
             console.log(!this.$v.password.$dirty);
             if(!this.$v.$invalid) {
                 axios.post('http://localhost:3000/api/signup',{
