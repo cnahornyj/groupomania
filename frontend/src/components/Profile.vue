@@ -5,7 +5,6 @@
                 <h3>Bonjour <span>{{ user.firstName }}</span> ravi de vous revoir !</h3><hr>
                 <div id="profile_informations">
                     <p>{{ user.firstName }} {{ user.lastName }}</p>
-                    <p>{{ user.email }}</p>
                     <p>Vous êtes parmis nous depuis le :</p>
                     <p>{{ user.createdAt | formatDate }}</p>
                 </div> 

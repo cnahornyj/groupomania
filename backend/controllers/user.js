@@ -6,14 +6,16 @@ const bcrypt = require('bcrypt');
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
+            let buff = new Buffer.from(req.body.email);
+	        let emailBase64 = buff.toString('base64');
             User.create({
                 firstName : req.body.firstName,
                 lastName: req.body.lastName,
-                email: req.body.email,
+                email: emailBase64,
                 password: hash,
                 role: 2
             })
-            .then(() => res.status(201).json({message: 'Utilisateur crée !'}))
+            .then(() => res.status(201).json({message: 'Utilisateur créé !'}))
             .catch(error => res.status(400).json({error}));
         })
         .catch(error => res.status(500).json({error}));
@@ -21,7 +23,9 @@ exports.signup = (req, res, next) => {
 
 // Envoi et vérification de l'entrée utilisateur pour se connecter
 exports.login = (req, res, next) => {
-    User.findAll({ where: { email: req.body.email }})
+    let buff = new Buffer.from(req.body.email);
+	let emailBase64 = buff.toString('base64');	
+    User.findAll({ where: { email: emailBase64 }})
         .then(user => {
             if (user[0] === undefined){
                 return res.status(404).json({error: "Utilisateur non trouvé"});
@@ -45,7 +49,6 @@ exports.login = (req, res, next) => {
         })
         .catch(error => res.status(400).json({error}));
 }
-
 
 // Récupération d'un seul utilisateur dans la table Users
 exports.getOneUser = (req, res, next) => {

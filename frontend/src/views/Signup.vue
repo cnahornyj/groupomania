@@ -30,7 +30,7 @@
             </div>
             <div class="navigation">
                 <router-link to="/Login" class="link">SE CONNECTER</router-link>
-                <button type="submit" >S'INSCRIRE</button>
+                <button type="submit">S'INSCRIRE</button>
             </div>
         </form>
     </main>
