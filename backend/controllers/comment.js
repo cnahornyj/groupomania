@@ -10,7 +10,6 @@ exports.getCommentsfromPost = (req, res, next) => {
         order: sequelize.literal('(createdAt) DESC'),
         include: [{model: User}]
     })
-    
         .then(comments => res.status(200).json(comments))
         .catch(error => res.status(400).json({error}));
 };
@@ -21,7 +20,7 @@ exports.createOneComment = (req, res, next) => {
         commentor_Id: req.body.userId,
         content: req.body.content
     })
-    .then(() => res.status(201).json({message:'Post crée'}))
+    .then(() => res.status(201).json({message:'Commentaire créé'}))
     .catch(error => res.status(400).json({error}));
 };
 
@@ -33,7 +32,7 @@ exports.deleteOneComment = (req, res, next) => {
 
 exports.modifyOneComment = (req, res, next) => {
     Comment.update({
-        content : req.body.content
+        content: req.body.content
     },
     {
         where: {

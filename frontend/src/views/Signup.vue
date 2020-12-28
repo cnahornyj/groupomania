@@ -25,7 +25,7 @@
             <div class="group">
                 <label for="password">Mot de passe</label>
                 <input type="password" name="password" id="password" placeholder="••••••••••" v-model="password">
-                <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
+                <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited">Veuillez rentrer un mot de passe </span>
                 <span class="error-message" v-if="(!$v.password.isPasswordStrong) && $v.password.$dirty">Le mot de passe doit être contenir minimum 8 caractères avec au moins une minuscule, une majuscule, un chiffre et un caractère spécial</span>
             </div>
             <div class="navigation">
@@ -39,7 +39,7 @@
 <script>
 
 import axios from 'axios'
-import { required, alpha, email} from 'vuelidate/lib/validators'
+import { required, alpha, email } from 'vuelidate/lib/validators'
 export default {
     name: 'Signup',
     data(){
@@ -104,6 +104,7 @@ export default {
                     .then(res => {
                         sessionStorage.setItem('usertoken', res.data.token);
                         sessionStorage.setItem('userId', parseInt(res.data.userId));
+                        sessionStorage.setItem('role', parseInt(res.data.role));
                         window.location.href="/#/Home";
                     })
                     .catch(error => {

@@ -3,12 +3,12 @@
         <CreateComment v-bind:comments="comments" v-bind:printComments="printComments"/>
         <div id="comments-list" v-for='comment in comments' :key='comment.commentId'>
             <p id="comment-user">{{ comment.User.firstName }}  {{ comment.User.lastName }}</p>
-            <div title="toggle-options" id="toggle-options" v-on:click="optionToggle(comment)" v-if="comment.commentor_Id == userId || userRole == 1"><font-awesome-icon icon="ellipsis-h"/></div>
+            <div title="toggle-options" id="toggle-options" v-on:click="optionToggle(comment)" v-if="comment.commentor_Id == userId || role == 1"><font-awesome-icon icon="ellipsis-h"/></div>
             <div v-if="comment.option" id="scrolling-menu">
-                <div class="option" title="Supprimer le commentaire" v-if="comment.commentor_Id == userId || userRole == 1" v-on:click="deleteComment(comment.commentId)">
+                <div class="option" title="Supprimer le commentaire" v-if="comment.commentor_Id == userId || role == 1" v-on:click="deleteComment(comment.commentId)">
                     Supprimer 
                 </div>
-                <div class="option" title="Modifier le commentaire" v-if="(comment.commentor_Id == userId || userRole == 1) && comment.modify == false" v-on:click="modifyPrompt(comment), optionToggle(comment)" >
+                <div class="option" title="Modifier le commentaire" v-if="(comment.commentor_Id == userId || role == 1) && comment.modify == false" v-on:click="modifyPrompt(comment), optionToggle(comment)" >
                     Modifier
                 </div>
             </div>
@@ -24,7 +24,6 @@
 <script>
 import CreateComment from './CreateComment'
 import axios from 'axios'
-import VueJwtDecode from 'vue-jwt-decode'
 export default {
     name: 'Comments',
     components:{
@@ -33,7 +32,7 @@ export default {
     data(){
         return {
             comments: "",
-            userRole: VueJwtDecode.decode(sessionStorage.getItem('usertoken')).role,
+            role: sessionStorage.getItem('role'),
             userId: sessionStorage.getItem('userId'),
         }
     },
@@ -76,7 +75,6 @@ export default {
             })
             .then(res => {
                 let data = res.data;
-                console.log("les commentaires", data);
                 for (let i = 0; i<data.length; i++){
                     data[i].modify = false;
                     data[i].option = false;

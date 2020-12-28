@@ -1,7 +1,7 @@
 <template>
     <div id="post__likebox">
         <p>{{ numberOfLikes }} j'aime(s)</p>
-        <p class="post__like" role="button" :id="post.postId" v-on:click="Likes()"><font-awesome-icon icon="heart"/></p>
+        <p class="post__like" role="button" aria-label="Bouton like" :id="post.postId" v-on:click="Likes()"><font-awesome-icon icon="heart" alt="Icône cliquable pour liker le post"/></p>
     </div>
         
 </template>
@@ -19,7 +19,6 @@ export default {
         }
     },
     created() {
-        console.log("Je me crée (Likes)")
         const post_Id = this.post.postId
         const token = this.token;
         axios.get('http://localhost:3000/api/likes/' + post_Id,
@@ -31,12 +30,10 @@ export default {
         })
         .then(res => {
             const data = res.data;
-            console.log('Les likes :', data);
             this.numberOfLikes = data.length;
             if(res.data.find(u => u.liker_Id === this.userId )){
                 this.post.isLiked = true;
                 document.getElementById(this.post.postId).classList = "post__like post__liked"
-                console.log(this.post.isLiked)
             } else {
                 this.post.isLiked = false;
             }

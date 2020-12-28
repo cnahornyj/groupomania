@@ -9,12 +9,12 @@
                     </div>
                 </div>
                 <div class="div-icon">
-                <font-awesome-icon icon="pen" id="icon-pen" v-if="post.creator_Id == userId || userRole == 1" v-on:click='toggleModale'/>
+                <font-awesome-icon icon="pen" id="icon-pen" alt="Icône pour modifier le post" v-if="post.creator_Id == userId || role == 1" v-on:click='toggleModale'/>
                 </div>
             </div>
             <p>{{ post.content }}</p>
             <div>
-                <img :src="post.imageUrl" alt="Image relative au post" style="width: 100%;border: 0.5px outset grey;">
+                <img :src="post.imageUrl" alt="Image du post" style="width: 100%;border: 0.5px outset grey;">
             </div>
             <Likes v-bind:post="post"/>
             <Comments/>
@@ -28,7 +28,6 @@ import axios from 'axios'
 import Comments from './Comments'
 import Likes from './Likes'
 import ModalePost from './ModalePost'
-import VueJwtDecode from 'vue-jwt-decode'
 export default {
     name: 'Post',
     components:{
@@ -40,7 +39,7 @@ export default {
         return {
             post: "",
             revele: false,
-            userRole: VueJwtDecode.decode(sessionStorage.getItem('usertoken')).role,
+            role: sessionStorage.getItem('role'),
             userId: sessionStorage.getItem('userId')
         }
     },

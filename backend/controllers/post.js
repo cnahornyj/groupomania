@@ -10,7 +10,6 @@ exports.getAllPosts = (req, res, next) => {
         order: sequelize.literal('(createdAt) DESC'),
         include: [{model: User}]
     })
-    
         .then(posts => res.status(200).json(posts))
         .catch(error => res.status(400).json({error}));
 };
@@ -28,7 +27,7 @@ exports.createOnePost = (req, res, next) => {
 
 exports.deleteOnePost = (req, res, next) => {
     Post.findAll({ where: {postId: req.params.id}})
-    .then( post => {
+    .then(post => {
         const filename = post[0].imageUrl.split('/images/')[1];
         fs.unlink(`images/${filename}`,() => {
             Post.destroy({ where: {postId: req.params.id}})

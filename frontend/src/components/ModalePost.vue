@@ -62,7 +62,7 @@ export default {
                 .then(res => {
                     console.log(res);
                     this.success = true;
-                    this.message = "Votre Post a bien été modifié";
+                    this.message = "Votre post a bien été modifié";
                     document.getElementById('response').classList = 'success'
                     this.printPost();
                     this.toggleModale();

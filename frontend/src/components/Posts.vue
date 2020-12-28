@@ -1,6 +1,6 @@
 <template>
     <main>
-        <CreatePosts v-bind:posts="posts"  v-bind:userRole="userRole" v-bind:printNewPosts="printNewPosts"/>
+        <CreatePosts v-bind:posts="posts"  v-bind:role="role" v-bind:printNewPosts="printNewPosts"/>
         <div id="post" v-for="post in posts" :key="post.postId">
             <div class="title">
                 <div class="user-bloc">
@@ -10,14 +10,14 @@
                     </div>
                 </div>
                 <div class="div-icon">
-                    <font-awesome-icon icon="trash" id="icon-trash" v-if="post.creator_Id == userId || userRole == 1" v-on:click="deletePost(post.postId)"/>
+                    <font-awesome-icon icon="trash" id="icon-trash" alt="Icône pour supprimer le post" v-if="post.creator_Id == userId || role == 1" v-on:click="deletePost(post.postId)"/>
                 </div>
             </div>
             <p>{{ post.content }}</p>
             <router-link :to="{name:'Post', params: {id : post.postId}}">
                 <div id="bloc-image">
                     <img :src="post.imageUrl" :alt="post.content" id="image-link">
-                    <font-awesome-icon icon="comments" id="icon-comment" title="Commenter le post" alt="Icône cliquable pour commenter"/>
+                    <font-awesome-icon icon="comments" id="icon-comment" alt="Icône cliquable pour commenter le post"/>
                 </div>
             </router-link>
             <Likes v-bind:post="post"/>
@@ -27,7 +27,6 @@
 
 <script>
 import axios from 'axios'
-import VueJwtDecode from 'vue-jwt-decode'
 import CreatePosts from './CreatePosts'
 import Likes from './Likes'
 export default {
@@ -39,7 +38,7 @@ export default {
     data(){
         return {
             posts: "",
-            userRole: "",
+            role: "",
             userId: sessionStorage.getItem('userId'),
             token: sessionStorage.getItem('usertoken'),
             imagePreview: "https://cdn.iconscout.com/icon/free/png-256/comment-28-433219.png"
@@ -73,7 +72,6 @@ export default {
             axios.get('http://localhost:3000/api/posts/', header)
             .then(res => {
                 const data = res.data;
-                console.log(data);
                 this.posts = data;
             })
             .catch(error => console.log({error}));
@@ -81,9 +79,8 @@ export default {
     },
     
     beforeMount() {
-        const decodedToken = VueJwtDecode.decode(sessionStorage.getItem('usertoken'));
-        const UserRole = decodedToken.role;
-        this.userRole = UserRole;
+        const role = sessionStorage.getItem('role');
+        this.role = role;
         this.printNewPosts();
     },
 }

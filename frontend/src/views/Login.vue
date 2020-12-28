@@ -7,18 +7,17 @@
             <div class="group">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" value="" v-model="email" placeholder="exemple@hotmail.com" v-on:focus="deActivate">
-                <span class="error-message" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez rentrer un email valide</span>
+                <span class="error-message" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez saisir un email valide</span>
             </div>
             <div class="group">
                 <label for="password">Mot de passe</label>
                 <input type="password" name="password" id="password" value="" v-model="password" placeholder="••••••••••" v-on:focus="deActivate">
-                <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited" >Veuillez rentrer un mot de passe </span>
-                <span class="error-message" v-if="(!$v.password.minLength || !$v.password.maxLength) && $v.password.$dirty">Le mot de passe doit être entre {{ $v.password.$params.minLength.min }} et {{ $v.password.$params.maxLength.max }} </span>
+                <span class="error-message" v-if="(!$v.password.required && $v.password.$dirty) && submited">Veuillez saisir votre mot de passe </span>
             </div>
             <span class="error-message" v-if="responseError && submited">Votre e-mail/votre mot de passe est incorrect</span>
             <div class="navigation">
-                <router-link to="/Signup" class="link" >S'INSCRIRE</router-link>
-                <button type="submit" >SE CONNECTER</button>
+                <router-link to="/Signup" class="link">S'INSCRIRE</router-link>
+                <button type="submit">SE CONNECTER</button>
             </div>
         </form>
     </main>
@@ -26,7 +25,7 @@
 
 <script>
 import axios from 'axios'
-import { required, minLength, maxLength, email} from 'vuelidate/lib/validators'
+import { required, email} from 'vuelidate/lib/validators'
 
 export default {
     name: 'Login',
@@ -44,9 +43,7 @@ export default {
             email
         },
         password: {
-            required,
-            minLength: minLength(6),
-            maxLength: maxLength(18)
+            required
         }
     },
     methods: {
@@ -67,10 +64,9 @@ export default {
                 .then(res => {
                     sessionStorage.setItem('usertoken', res.data.token);
                     sessionStorage.setItem('userId', parseInt(res.data.userId));
+                    sessionStorage.setItem('role', parseInt(res.data.role));
                     this.$store.commit("setAuthentication", true);
-                    this.$router.push('/Home');
-                    console.log(window.isSignedIn);
-                    
+                    this.$router.push('/Home');  
                 })
                 .catch(error => {
                     console.log({error});

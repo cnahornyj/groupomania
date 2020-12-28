@@ -19,6 +19,7 @@ export default {
         return{
             revele: false,
             userId: sessionStorage.getItem('userId'),
+            role: sessionStorage.getItem('role'),
             token: sessionStorage.getItem('usertoken')
         }
     },

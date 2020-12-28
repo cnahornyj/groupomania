@@ -12,11 +12,11 @@ const postRoutes = require('./routes/post');
 const commentRoutes = require('./routes/comment');
 const likeRoutes = require('./routes/like');
 
-// Initialisation de l'application avec le framework express
+// Initialisation de l'application avec le framework Express
 const app = express();
 
 
-// Connection à la bdd
+// Connexion à la BDD
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const { urlencoded } = require('body-parser');
 const { addHook } = require('./models/User');
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Test de la connection
+// Test de la connexion à la BDD
 sequelize.authenticate()
 .then(() => console.log('Connection to the database has been established succesfully.'))
 .catch(error => console.error('Unable to connect do the database', error));

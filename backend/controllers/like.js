@@ -39,7 +39,7 @@ exports.moderateLikes = (req, res, next) => {
                     }
                 })
                 .then(() =>{
-                    res.status(200).json({message: "j'ai supprimé le like que vous cherchiez"})
+                    res.status(200).json({message: "J'ai supprimé le like que vous cherchiez"})
                 })
                 .catch(error => res.status(400).json({error}));
                 
