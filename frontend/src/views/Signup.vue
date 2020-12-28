@@ -20,7 +20,7 @@
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" placeholder="exemple@hotmail.com" v-model="email" v-on:focus="deActivate">
                 <span class="error-message" v-if="((!$v.email.required || !$v.email.email) && $v.email.$dirty) && submited">Veuillez saisir un email valide</span>
-                <span class="error-message" v-if="responseEmailError">Cette adresse mail n'est pas disponible</span>
+                <span class="error-message" v-if="responseEmailError">L'inscription a échouée, merci de réessayer</span>
             </div>
             <div class="group">
                 <label for="password">Mot de passe</label>
@@ -29,7 +29,7 @@
                 <span class="error-message" v-if="(!$v.password.isPasswordStrong) && $v.password.$dirty">Le mot de passe doit être contenir minimum 8 caractères avec au moins une minuscule, une majuscule, un chiffre et un caractère spécial</span>
             </div>
             <div class="navigation">
-                <router-link to="/Login" class="link" >SE CONNECTER</router-link>
+                <router-link to="/Login" class="link">SE CONNECTER</router-link>
                 <button type="submit" >S'INSCRIRE</button>
             </div>
         </form>

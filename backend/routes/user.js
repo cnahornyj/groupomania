@@ -17,6 +17,6 @@ router.get('/users/:id', auth, authUser, userCtrl.getOneUser);
 router.delete('/users/:id', auth, authUser, userCtrl.deleteOneUser);
 
 // Vérification de l'utilisateur avec le token
-router.get('/auth', auth , userCtrl.authenticate);
+router.get('/auth', auth, userCtrl.authenticate);
 
 module.exports = router;

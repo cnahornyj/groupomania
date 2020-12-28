@@ -5,9 +5,9 @@ const authComm = require('../middleware/authComm')
 const auth = require('../middleware/auth');
 
 // Création d'un post 
-router.post('/create/:id' ,auth,  commentCtrl.createOneComment);
+router.post('/create/:id', auth, commentCtrl.createOneComment);
 
-// Récupération des commentaires liés au post
+// Récupération les commentaires d'un post
 router.get('/:id', auth, commentCtrl.getCommentsfromPost);
 
 // Suppression d'un commentaire 
