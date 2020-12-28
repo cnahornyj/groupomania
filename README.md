@@ -26,7 +26,7 @@ PORT = PORT
 SECRET_KEY = SECRET_KEY" > .env.example`<br>
 `mv .env.example .env`
 
-#### Pour lancer le backend → Exécutez la commande `nodemon server`<br> Pour lancer le frontend → Ouvrir un second terminal et exécutez la commande `npm run serve`
+#### Pour lancer le backend → Exécutez la commande `nodemon server` dans le dossier backend<br> Pour lancer le frontend → Ouvrir un second terminal et exécutez la commande `npm run serve` dans le dossier frontend
 
 
 ## Technologies utilisées
