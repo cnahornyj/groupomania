@@ -17,7 +17,7 @@
 `cd ..`<br>
 `cd backend`<br>
 `npm install`<br>
-### Créer une base de données dans MySQL <br> et renseignez vos variables d'environnement dans le fichier .env.example dans le dossier backend
+### Créez une base de données dans MySQL <br> et renseignez vos variables d'environnement dans le fichier .env.example dans le dossier backend
 `echo "HOST = localhost
 DATABASE = DB_NAME
 DB_USERNAME = DB_USERNAME
@@ -26,8 +26,7 @@ PORT = PORT
 SECRET_KEY = SECRET_KEY" > .env.example`<br>
 `mv .env.example .env`
 
-#### Pour lancer le backend → Exécutez la commande `nodemon server` dans le dossier backend<br> Pour lancer le frontend → Ouvrir un second terminal et exécutez la commande `npm run serve` dans le dossier frontend
-
+#### Pour lancer le backend → Exécutez la commande `nodemon server` dans le dossier backend<br> Pour lancer le frontend → Ouvrir un second terminal et exécutez la commande `npm run serve` dans le dossier frontend<br> Vous pouvez parallèlement dans un troisième terminal accédez à la base de données pour voir les changements en temps réel
 
 ## Technologies utilisées
 
