@@ -54,9 +54,11 @@
             <span>une nouvelle manière d'échanger</span>
             </div>
             <h2>Prérequis</h2>
-            <p>NodeJS</p>
-            <p>NPM</p>
-            <p>MySQL</p>
+            <ul>
+                <li>NodeJS</li>
+                <li>NPM</li>  
+                <li>MySQL</li> 
+            </ul>
             <h2>Installation</h2>
             <p>git clone https://github.com/cnahornyj/groupomania.git
             cd groupomania
