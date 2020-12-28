@@ -1,6 +1,8 @@
 # Groupomania
 ## Le réseau social d'entreprise
 
+![groupomania_preview](https://user-images.githubusercontent.com/50677355/103230945-ee4cbc00-4936-11eb-8a9e-9c4a59ac9100.png)
+
 ## Prérequis
 
 * NodeJS
@@ -21,7 +23,7 @@ DATABASE = DB_NAME
 DB_USERNAME = DB_USERNAME
 DB_PASSWORD = DB_PASSWORD
 PORT = PORT
-SECRET_KEY = YOUR_SECRET_KEY" > .env.example`<br>
+SECRET_KEY = SECRET_KEY" > .env.example`<br>
 `mv .env.example .env`
 
 #### Pour lancer le backend → Exécutez la commande `nodemon server`<br> Pour lancer le frontend → Ouvrir un second terminal et exécutez la commande `npm run serve`
